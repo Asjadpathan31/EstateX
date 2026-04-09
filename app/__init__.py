@@ -8,12 +8,17 @@ db = SQLAlchemy()
 jwt = JWTManager()
 
 def create_app():
+
     app = Flask(__name__)
     app.config.from_object(Config)
 
     CORS(app)
+
     db.init_app(app)
     jwt.init_app(app)
+
+    # Import models
+    from . import models
 
     from .routes import main
     app.register_blueprint(main)

@@ -1,5 +1,5 @@
 from . import db
-from datetime import datetime
+
 
 # =========================
 # USER MODEL
@@ -12,9 +12,8 @@ class User(db.Model):
         primary_key=True
     )
 
-    username = db.Column(
-        db.String(80),
-        unique=True,
+    name = db.Column(
+        db.String(100),
         nullable=False
     )
 
@@ -25,24 +24,13 @@ class User(db.Model):
     )
 
     password = db.Column(
-        db.String(200),
+        db.String(255),
         nullable=False
     )
 
-    role = db.Column(
-        db.String(20),
-        default="user"
-    )
-
-    created_at = db.Column(
-        db.DateTime,
-        default=datetime.utcnow
-    )
-
-    # Relationship with Property
     properties = db.relationship(
-        'Property',
-        backref='owner',
+        "Property",
+        backref="owner",
         lazy=True
     )
 
@@ -74,27 +62,17 @@ class Property(db.Model):
     )
 
     location = db.Column(
-        db.String(200),
+        db.String(150),
         nullable=False
     )
 
     property_type = db.Column(
-        db.String(50),
+        db.String(100),
         nullable=False
     )
 
-    image_url = db.Column(
-        db.String(300)
-    )
-
-    created_at = db.Column(
-        db.DateTime,
-        default=datetime.utcnow
-    )
-
-    # Foreign Key
     user_id = db.Column(
         db.Integer,
-        db.ForeignKey('user.id'),
+        db.ForeignKey("user.id"),
         nullable=False
     )

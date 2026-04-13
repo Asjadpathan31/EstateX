@@ -1,42 +1,33 @@
-import { motion } from "framer-motion";
-
 function PropertyCard({ property }) {
+
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      className="bg-white rounded-xl shadow-md overflow-hidden"
-    >
 
-      {/* Image */}
-      <img
-        src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
-        alt="property"
-        className="w-full h-48 object-cover"
-      />
+    <div className="bg-white shadow-md rounded-xl p-6">
 
-      {/* Details */}
-      <div className="p-4">
+      <h3 className="text-xl font-bold mb-2">
+        {property.title}
+      </h3>
 
-        <h2 className="text-xl font-bold text-gray-800">
-          {property.title}
-        </h2>
+      <p className="text-gray-600 mb-2">
+        {property.description}
+      </p>
 
-        <p className="text-gray-500 mt-1">
-          📍 {property.location}
-        </p>
+      <p className="font-semibold text-blue-600 mb-2">
+        ₹ {property.price}
+      </p>
 
-        <p className="text-blue-600 font-bold mt-2 text-lg">
-          ₹ {property.price}
-        </p>
+      <p className="text-sm text-gray-500 mb-1">
+        📍 {property.location}
+      </p>
 
-        <p className="text-gray-600 mt-2">
-          {property.description}
-        </p>
+      <p className="text-sm text-gray-500">
+        🏠 {property.property_type}
+      </p>
 
-      </div>
+    </div>
 
-    </motion.div>
   );
+
 }
 
 export default PropertyCard;

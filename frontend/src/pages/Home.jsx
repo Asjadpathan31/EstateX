@@ -2,7 +2,9 @@ import Hero from "../components/Hero";
 import PropertyList from "../components/PropertyList";
 
 function Home() {
+
   return (
+
     <div>
 
       <Hero />
@@ -10,7 +12,9 @@ function Home() {
       <PropertyList />
 
     </div>
+
   );
+
 }
 
 export default Home;

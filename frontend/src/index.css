@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Test Tailwind */
 body {
-  @apply bg-blue-500;
+
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background-color: #f3f4f6;
+
 }
